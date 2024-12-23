@@ -1,19 +1,23 @@
-# Compiler and Flags
-CC = g++
-CFLAGS = -Wall -std=c++17 -I/opt/homebrew/include
+# Compiler and flags
+CXX = g++
+CXXFLAGS = -Wall -std=c++17 -I/opt/homebrew/include
 LDFLAGS = -L/opt/homebrew/lib -lraylib
 
-# Target Executable
+# Source files and target
+SRC = TetrisGame.cpp grid.cpp
+HEADERS = grid.h
 TARGET = TetrisGame
 
-# Source Files
-SRC = TetrisGame.cpp
-
-# Build Rules
+# Default target
 all: $(TARGET)
 
+# Linking
 $(TARGET): $(SRC)
-	$(CC) $(SRC) -o $(TARGET) $(CFLAGS) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LDFLAGS)
 
+# Clean the build
 clean:
 	rm -f $(TARGET)
+
+# Rebuild
+rebuild: clean all
