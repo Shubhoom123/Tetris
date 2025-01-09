@@ -1,26 +1,19 @@
-# Compiler and Flags
 CXX = g++
 CXXFLAGS = -Wall -std=c++17 -I/opt/homebrew/include
 LDFLAGS = -L/opt/homebrew/lib -lraylib
 
-# Object Files
 OBJS = grid.o TetrisGame.o
 
-# Output Executable
-TARGET = TetrisGame
+all: TetrisGame
 
-# Build Rules
-all: $(TARGET)
-
-$(TARGET): $(OBJS)
-	$(CXX) $(OBJS) $(LDFLAGS) -o $(TARGET)
+TetrisGame: $(OBJS)
+	$(CXX) $(OBJS) $(LDFLAGS) -o TetrisGame
 
 grid.o: grid.cpp grid.h
-	$(CXX) $(CXXFLAGS) -c grid.cpp -o grid.o
+	$(CXX) $(CXXFLAGS) -c grid.cpp
 
 TetrisGame.o: TetrisGame.cpp grid.h
-	$(CXX) $(CXXFLAGS) -c TetrisGame.cpp -o TetrisGame.o
+	$(CXX) $(CXXFLAGS) -c TetrisGame.cpp
 
-# Clean Rule
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f *.o TetrisGame

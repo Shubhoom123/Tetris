@@ -1,0 +1,13 @@
+To do for project
+* Set up Game Loop X 
+* Make the Grid To Play X 
+* Making the Components 
+* Moving Stuff
+* Rotating
+* Checking Logic for Score
+* Check for Rows
+* Finish
+* Making the main UI 
+* Making Score
+* Next Blocks
+* Optional for Sounds
